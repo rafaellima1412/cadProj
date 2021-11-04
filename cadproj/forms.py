@@ -1,6 +1,15 @@
+from django import forms
+
+from .models import Projeto
 
 
-class ClientDetailsForm(ModelForm):
-    ddata_inicio = DateField(input_formats=settings.DATE_INPUT_FORMATS)
+class ProjetoForm(forms.ModelForm):
+
     class Meta:
-        model = ClientDetails
+        model = Projeto
+
+        widgets = {
+            'data_de_inicio': forms.DateInput(format='%d-%m-%Y'),
+        }
+
+        fields = '__all__'
