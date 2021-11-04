@@ -1,0 +1,63 @@
+{% extends "website/_layouts/base.html" %} 
+{% load widget_tweaks %} 
+{% block title %}Atualização de Projeto{% endblock %} 
+{% block conteudo %}
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Atualização de Dados do Projeto</h5>
+            <form enctype="multipart/form-data" method="post" action ="">
+                <!-- Não se esqueça dessa tag -->
+                {% csrf_token %}
+                    <!-- Nome Projeto-->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Nome do Projeto</span>
+                        </div>
+                        {% render_field form.nome_do_projeto class+="form-control" %}
+                    </div>
+                    <!-- data_de_inicio -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Data de Inicio</span>
+                        </div>
+                        {% render_field form.data_de_inicio class+="form-control" %}
+                    </div>
+                    <!-- data_de_fim -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Data de Fim</span>
+                        </div>
+                        {% render_field form.data_de_fim class+="form-control" %}
+                    </div>
+                    <!-- valor -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Valor do Projeto</span>
+                        </div>
+                        {% render_field form.valor_projeto class+="form-control" %}
+                    </div>
+                    <!-- Risco -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Nivel do Risco</span>
+                        </div>
+                        {% render_field form.risco class+="form-control" %}
+                    </div>
+                    <!-- participantes -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Participantes</span>
+                        </div>
+                        {% render_field form.participantes class+="form-control" %}
+                    </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>  
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
