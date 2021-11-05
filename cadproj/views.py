@@ -33,7 +33,7 @@ class ProjetoUpdateView(UpdateView):
         id = self.kwargs.get(self.pk_url_kwarg)
         if id is not None:
             # Busca o projeto apartir do id
-            projeto = Projeto.objects.filter(id=id).first()
+            projeto = Projeto.objects.filter(id=id).first() 
         return projeto
 
 
@@ -47,9 +47,9 @@ class ProjetoDeleteView(DeleteView):
 def simulador(request, pk):
     projeto = None
     if pk is not None:
-        projeto = Projeto.objects.filter(id=pk)
-        context = {'id': pk, 'projeto': projeto}
-        return render(request, 'saida.html', context=context)
+        projeto = Projeto.objects.filter(id=pk).first()        
+    context = {'id': pk, 'projeto': projeto}
+    return render(request, 'saida.html', context=context)
 
 
 InsereProjeto = ProjetoCreateView.as_view()

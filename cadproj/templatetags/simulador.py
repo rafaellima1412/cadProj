@@ -5,8 +5,8 @@ register = template.Library()
 
 
 @register.simple_tag
-def retorno_investimento(valor):
-    investimento = valor
+def retorno():
+    investimento = 90
     valor_do_projeto = Projeto.valor_projeto
     risco = Projeto.risco
     if investimento < valor_do_projeto:

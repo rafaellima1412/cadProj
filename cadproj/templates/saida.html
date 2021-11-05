@@ -10,12 +10,20 @@
                     <h5 class="card-title">Simulador de Investimento</h5>
                     {% load static simulador %}
                     <p class="card-text">
-                      <b>Valor:</b> {{nome_do_projeto}}
+                      <b>ID do Projeto:</b> {{id}}
                     </p>
-                   
                     <p class="card-text">
-                      <b>Retorno:</b> {% retorno_investimento 50 %}
+                      <b>Nome do Projeto:</b> {{projeto.nome_do_projeto}}
                     </p>
+                    <p class="card-text">
+                      <b>Valor do Projeto:</b> {{projeto.valor_projeto}}
+                    </p>
+                    <p class="card-text">
+                      Investimento: <input type="text" name="invest">
+                      <button class="btn btn-success">OK</button>
+                    </p>
+                     
+
                 {% else %}
                     <p class="card-text">
                       <i>Nenhum Projeto registrado com este ID</i>
