@@ -11,40 +11,43 @@
                 <p class="card-text">
                     Aqui está a lista de <code>Projetos</code> cadastrados.
                 </p>
-                <table class="table">
+                <table  class="table table-sm">
                     <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
-                        <th>Nome do Projeto</th>
-                        <th>Data de Inicio</th>
-                        <th>Data de Fim</th>
-                        <th>Valor do Projeto</th>
-                        <th>Nivel do Risco</th>
-                        <th>Participantes</th>
+                        <th scope="col">ID</th>
+                        <th  scope="col">Nome Projeto</th>
+                        <th  scope="col">Data de Inicio</th>
+                        <th  scope="col">Data de Fim</th>
+                        <th  scope="col">Valor do Projeto</th>
+                        <th  scope="col">Risco</th>
+                        <th  scope="col">Participantes</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for f in projetos %}
+                    {% for p in projetos %}
                         <tr>
-                            <td>{{ f.id }}</td>
-                            <td>{{ f.nome_do_projeto }}</td>
-                            <td>{{ f.data_de_inicio }}</td>
-                            <td>{{ f.data_de_fim }}</td>
-                            <td>{{ f.valor_projeto }}</td>
-                            <td>{{ f.risco }}</td>
-                            <td>{{ f.participantes }}</td>
+                            <td scope="row">{{ p.id }}</td>
+                            <td scope="row">{{ p.nome_do_projeto }}</td>
+                            <th scope="row">{{ p.data_de_inicio|date:"d/m/Y" }}</th>
+                            <th scope="row">{{ p.data_de_fim|date:"d/m/Y"  }}</th>
+                            <td scope="row">{{ p.valor_projeto }}</td>
+                            <td scope="row">{{ p.risco }}</td>
+                            <td scope="row">{{ p.participantes }}</td>
                             <td>
                             <a
-                                href="{% url 'cadproj:atualiza_projeto' slug=f.slug %}"
+                                href="{% url 'cadproj:atualiza_projeto' pk=p.id %}"
                                 class="btn btn-info"
                             >
-                                Atualizar
+                                Editar
                             </a>
                             <a
-                                href="{% url 'cadproj:deleta_projeto' slug=f.slug %}"
-                                class="btn btn-outline-danger"
+                                href="{% url 'cadproj:deleta_projeto' pk=p.id %}"
+                                class="btn btn-danger"
                             >
                                 Excluir
+                            </a>
+                            <a class="btn btn-success" href="{% url 'cadproj:simulador' pk=p.id %}">
+                                Simular
                             </a>
                             </td>
                         </tr>

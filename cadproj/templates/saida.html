@@ -1,0 +1,29 @@
+{% extends "website/_layouts/base.html" %}
+{% block title %}Simulador Investimento{% endblock %} 
+{% block conteudo %}
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="card text-center">
+              <div class="card-body">
+                {% if projeto %}
+                    <h5 class="card-title">Simulador de Investimento</h5>
+                    {% load static simulador %}
+                    <p class="card-text">
+                      <b>Valor:</b> {{nome_do_projeto}}
+                    </p>
+                   
+                    <p class="card-text">
+                      <b>Retorno:</b> {% retorno_investimento 50 %}
+                    </p>
+                {% else %}
+                    <p class="card-text">
+                      <i>Nenhum Projeto registrado com este ID</i>
+                    </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

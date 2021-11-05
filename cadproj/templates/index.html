@@ -14,7 +14,7 @@
                 Cadastre aqui um novo <code>Projeto</code>.
               </p>
               <a
-                href=""
+                href="{% url 'cadproj:cadastra_projeto' %}"
                 class="btn btn-primary"
               >
                 Novo Projeto
@@ -30,7 +30,7 @@
                 Veja aqui a lista de <code>Projetos</code> cadastrados.
               </p>
               <a
-                href=""
+                href="{% url 'cadproj:lista_projetos' %}"
                 class="btn btn-primary"
               >
                 Vá para Lista
