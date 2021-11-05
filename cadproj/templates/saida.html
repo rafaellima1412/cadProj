@@ -22,8 +22,9 @@
                       Investimento: <input type="text" name="invest">
                       <button class="btn btn-success">OK</button>
                     </p>
-                     
-
+                    <p class="card-text">
+                      <b>Valor Calculo do Retorno do Investimento:</b> {% retorno pk=projeto.id  valor=400 %}
+                    </p>
                 {% else %}
                     <p class="card-text">
                       <i>Nenhum Projeto registrado com este ID</i>
