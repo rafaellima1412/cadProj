@@ -12,4 +12,5 @@ urlpatterns = [
     path("projeto/<int:pk>", views.AtualizaProjeto, name="atualiza_projeto"),
     path("projeto/excluir/<int:pk>", views.ExcluiProjeto, name="deleta_projeto"),
     path("projeto/simulador/<int:pk>", views.simulador, name='simulador'),
+    path("projeto/simulador/investimento/<int:pk>", views.investimento, name='investimento'),
 ]

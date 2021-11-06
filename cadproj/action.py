@@ -1,10 +1,6 @@
 from cadproj.models import Projeto
-from django import template
-
-register = template.Library()
 
 
-@register.simple_tag
 def retorno(pk, valor):
     projeto = Projeto.objects.get(id=pk)
     investimento = int(valor)

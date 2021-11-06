@@ -1,38 +1,45 @@
 {% extends "website/_layouts/base.html" %}
-{% block title %}Simulador Investimento{% endblock %} 
+{% block title %}Simulador Investimento{% endblock %}
 {% block conteudo %}
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="card text-center">
-              <div class="card-body">
-                {% if projeto %}
-                    <h5 class="card-title">Simulador de Investimento</h5>
-                    {% load static simulador %}
-                    <p class="card-text">
-                      <b>ID do Projeto:</b> {{id}}
-                    </p>
-                    <p class="card-text">
-                      <b>Nome do Projeto:</b> {{projeto.nome_do_projeto}}
-                    </p>
-                    <p class="card-text">
-                      <b>Valor do Projeto:</b> {{projeto.valor_projeto}}
-                    </p>
-                    <p class="card-text">
-                      Investimento: <input type="text" name="invest">
-                      <button class="btn btn-success">OK</button>
-                    </p>
-                    <p class="card-text">
-                      <b>Valor Calculo do Retorno do Investimento:</b> {% retorno pk=projeto.id  valor=400 %}
-                    </p>
-                {% else %}
-                    <p class="card-text">
-                      <i>Nenhum Projeto registrado com este ID</i>
-                    </p>
-                {% endif %}
-              </div>
-            </div>
-          </div>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="card text-center">
+        <div class="card-body">
+          {% if projeto %}
+          <h5 class="card-title">Simulador de Investimento</h5>
+
+          <p class="card-text">
+            <b>ID do Projeto:</b> {{id}}
+          </p>
+          <p class="card-text">
+            <b>Nome do Projeto:</b> {{projeto.nome_do_projeto}}
+          </p>
+          <p class="card-text">
+            <b>Valor do Projeto:</b> {{projeto.valor_projeto}}
+          </p>
+         
+          <form method="POST" action="investimento/{{id}}">
+            {% csrf_token %}
+            
+          <p class="card-text">
+            Investimento: <input type="text" name="invest">
+           
+            <p class="card-text">
+              <button type="submit" class="btn btn-success">OK</button>
+          </form>
+         
+          <p class="card-text">
+            <b>Valor Calculo do Retorno do Investimento:</b> {{retorno_calculo}}
+          </p>
+          {% else %}
+          <p class="card-text">
+            <i>Nenhum Projeto registrado com este ID</i>
+          </p>
+          {% endif %}
         </div>
       </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
