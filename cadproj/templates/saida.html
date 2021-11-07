@@ -19,7 +19,8 @@
             <b>Valor do Projeto:</b> {{projeto.valor_projeto}}
           </p>
          
-          <form method="POST" action="investimento/{{id}}">
+          <form method="POST" action="{% url 'cadproj:investimento' projeto.id %}">
+         
             {% csrf_token %}
             
           <p class="card-text">
